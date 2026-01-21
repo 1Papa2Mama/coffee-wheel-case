@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vector Coffee</title>
+  <link rel="stylesheet" href="/site/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <img src="/assets/logo.svg" alt="Vector Coffee" />
+      <div>
+        <p class="brand-title">Vector Coffee</p>
+        <p class="brand-subtitle">кофейня с настроением</p>
+      </div>
+    </div>
+    <nav class="nav">
+      <a href="/" data-route>Главная</a>
+      <a href="/profile" data-route>Профиль</a>
+      <a href="/discounts" data-route>Скидки и акции</a>
+      <a href="/menu" data-route>Меню</a>
+    </nav>
+  </header>
+
+  <main class="content">
+    <section id="home" class="page active">
+      <section class="hero">
+        <div>
+          <h1>Добро пожаловать в Vector Coffee</h1>
+          <p>
+            Мы создаём идеальный вкус для вашего дня: мягкие эспрессо-бленды, кофейные
+            коктейли и уютное пространство для работы и встреч.
+          </p>
+          <div class="hero-actions">
+            <button class="btn" data-route="/menu">Смотреть меню</button>
+            <button class="btn ghost" data-route="/discounts">Получить скидку</button>
+          </div>
+        </div>
+        <img
+          class="hero-image"
+          src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=800&q=80"
+          alt="Coffee"
+        />
+      </section>
+
+      <section class="section">
+        <h2>О кофейне</h2>
+        <div class="cards">
+          <div class="card">
+            <h3>Авторские напитки</h3>
+            <p>Каждый напиток — точная комбинация зерна, температуры и текстуры.</p>
+          </div>
+          <div class="card">
+            <h3>Премиальные зёрна</h3>
+            <p>Мы используем отборные зерна из Эфиопии, Бразилии и Колумбии.</p>
+          </div>
+          <div class="card">
+            <h3>Тёплая атмосфера</h3>
+            <p>Уютный зал, розетки у каждого столика и мягкий свет.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section split">
+        <div>
+          <h2>Преимущества</h2>
+          <ul class="list">
+            <li>Собственная обжарка под каждую линейку напитков.</li>
+            <li>Персонализированные рекомендации под ваш вкус.</li>
+            <li>Еженедельные скидки и бонусы для гостей.</li>
+          </ul>
+          <div class="info">
+            <p><strong>Часы работы:</strong> ежедневно 08:00 — 22:00</p>
+            <p><strong>Адрес:</strong> ул. Латте, 15, Москва</p>
+          </div>
+        </div>
+        <img
+          class="rounded"
+          src="https://images.unsplash.com/photo-1481833761820-0509d3217039?auto=format&fit=crop&w=700&q=80"
+          alt="Cafe interior"
+        />
+      </section>
+
+      <section class="section">
+        <h2>Отзывы гостей</h2>
+        <div class="cards">
+          <div class="card review">
+            <p>“Лучший cappuccino в районе! Очень мягкий вкус.”</p>
+            <span>— Алина</span>
+          </div>
+          <div class="card review">
+            <p>“Уютно, можно спокойно поработать и выпить латте.”</p>
+            <span>— Иван</span>
+          </div>
+          <div class="card review">
+            <p>“Обожаю их десерты, особенно cheesecake.”</p>
+            <span>— Мария</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section contacts">
+        <h2>Контакты</h2>
+        <div class="cards">
+          <div class="card">
+            <h3>Бронь столика</h3>
+            <p>Телефон: <a href="tel:+74951234567">+7 (495) 123-45-67</a></p>
+            <p>Телефон: <a href="tel:+79876543210">+7 (987) 654-32-10</a></p>
+          </div>
+          <div class="card">
+            <h3>Telegram</h3>
+            <p>Бот кофейни: <a href="https://t.me/VectorCoffe_bot">@VectorCoffe_bot</a></p>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <section id="profile" class="page">
+      <div class="section">
+        <h2>Профиль</h2>
+        <div class="profile-grid">
+          <div class="profile-card">
+            <h3>Ваши данные</h3>
+            <p>Ваш ID: <span id="profile-id">—</span></p>
+            <p>Статус: <span id="profile-status">гость</span></p>
+            <p>Следующая попытка: <span id="profile-next">—</span></p>
+          </div>
+          <div class="profile-card">
+            <h3>Мои купоны</h3>
+            <div id="profile-coupons" class="coupon-list"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="discounts" class="page">
+      <div class="section">
+        <h2>Получи свою скидку</h2>
+        <p class="notice">Эта скидка применяется только на холодные напитки и пончики.</p>
+        <div class="wheel-wrap">
+          <canvas id="wheel" width="420" height="420"></canvas>
+          <button id="spin-btn" class="btn wheel-btn">Крутить</button>
+        </div>
+        <p id="spin-timer" class="timer"></p>
+      </div>
+    </section>
+
+    <section id="menu" class="page">
+      <div class="section">
+        <h2>Меню</h2>
+        <div class="menu-section">
+          <h3>Coffee</h3>
+          <div class="menu-grid">
+            <div class="menu-card">
+              <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=600&q=80" alt="Espresso" />
+              <div>
+                <h4>Espresso</h4>
+                <p>Интенсивный вкус и насыщенный аромат.</p>
+                <span>150 ₽</span>
+              </div>
+            </div>
+            <div class="menu-card">
+              <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=600&q=80" alt="Americano" />
+              <div>
+                <h4>Americano</h4>
+                <p>Классический кофе для спокойного утра.</p>
+                <span>180 ₽</span>
+              </div>
+            </div>
+            <div class="menu-card">
+              <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=600&q=80" alt="Cappuccino" />
+              <div>
+                <h4>Cappuccino</h4>
+                <p>Сбалансированный вкус, нежная пенка.</p>
+                <span>220 ₽</span>
+              </div>
+            </div>
+            <div class="menu-card">
+              <img src="https://images.unsplash.com/photo-1507133750040-4a8f57021571?auto=format&fit=crop&w=600&q=80" alt="Latte" />
+              <div>
+                <h4>Latte</h4>
+                <p>Молочная мягкость и кофейный акцент.</p>
+                <span>240 ₽</span>
+              </div>
+            </div>
+            <div class="menu-card">
+              <img src="https://images.unsplash.com/photo-1481391032119-d89fee407e44?auto=format&fit=crop&w=600&q=80" alt="Flat White" />
+              <div>
+                <h4>Flat White</h4>
+                <p>Плотная текстура, яркий кофе.</p>
+                <span>240 ₽</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-section">
+          <h3>Cold Drinks</h3>
+          <div class="menu-grid">
+            <div class="menu-card">
+              <img src="https://images.unsplash.com/photo-1464306076886-da185f6a9d76?auto=format&fit=crop&w=600&q=80" alt="Iced Latte" />
+              <div>
+                <h4>Iced Latte</h4>
+                <p>Лёд, молоко и мягкий эспрессо.</p>
+                <span>260 ₽</span>
+              </div>
+            </div>
+            <div class="menu-card">
+              <img src="https://images.unsplash.com/photo-1488900128323-21503983a07e?auto=format&fit=crop&w=600&q=80" alt="Cold Brew" />
+              <div>
+                <h4>Cold Brew</h4>
+                <p>Холодное заваривание на 12 часов.</p>
+                <span>280 ₽</span>
+              </div>
+            </div>
+            <div class="menu-card">
+              <img src="https://images.unsplash.com/photo-1505252585461-04db1eb84625?auto=format&fit=crop&w=600&q=80" alt="Lemonade" />
+              <div>
+                <h4>Lemonade</h4>
+                <p>Свежий лимон и лёгкая сладость.</p>
+                <span>190 ₽</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-section">
+          <h3>Donuts</h3>
+          <div class="menu-grid">
+            <div class="menu-card">
+              <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80" alt="Classic Donut" />
+              <div>
+                <h4>Classic Donut</h4>
+                <p>Нежное тесто и сахарная глазурь.</p>
+                <span>150 ₽</span>
+              </div>
+            </div>
+            <div class="menu-card">
+              <img src="https://images.unsplash.com/photo-1501084817091-a4f2b3d5b0b9?auto=format&fit=crop&w=600&q=80" alt="Chocolate Donut" />
+              <div>
+                <h4>Chocolate Donut</h4>
+                <p>Шоколадная глазурь и хрустящая крошка.</p>
+                <span>170 ₽</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-section">
+          <h3>Desserts</h3>
+          <div class="menu-grid">
+            <div class="menu-card">
+              <img src="https://images.unsplash.com/photo-1495147466023-ac5c588e2e94?auto=format&fit=crop&w=600&q=80" alt="Cheesecake" />
+              <div>
+                <h4>Cheesecake</h4>
+                <p>Классический творожный десерт.</p>
+                <span>260 ₽</span>
+              </div>
+            </div>
+            <div class="menu-card">
+              <img src="https://images.unsplash.com/photo-1516557070061-c3d1653fa646?auto=format&fit=crop&w=600&q=80" alt="Brownie" />
+              <div>
+                <h4>Brownie</h4>
+                <p>Плотный шоколадный вкус.</p>
+                <span>230 ₽</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="result-modal" class="modal hidden">
+    <div class="modal-content">
+      <h3 id="modal-title">Ваша скидка: 0%</h3>
+      <p id="modal-code">Ваш специальный код: —</p>
+      <p class="modal-note">Предъявите, пожалуйста, скриншот с вашей скидкой и кодом на кассе.</p>
+      <div class="modal-actions">
+        <button id="copy-code" class="btn">Скопировать код</button>
+        <button id="close-modal" class="btn ghost">Закрыть</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/site/app.js"></script>
+</body>
+</html>
