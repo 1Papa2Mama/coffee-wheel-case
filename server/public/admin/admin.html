@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vector Coffee Admin</title>
+  <link rel="stylesheet" href="/admin/admin.css" />
+</head>
+<body>
+  <h1>Vector Coffee — админка</h1>
+
+  <section id="login" class="card">
+    <h2>Вход</h2>
+    <p>Введите пароль администратора.</p>
+    <input type="password" id="password" placeholder="Пароль" />
+    <button id="login-btn">Войти</button>
+    <p id="login-error" class="notice"></p>
+  </section>
+
+  <section id="dashboard" class="hidden">
+    <div class="card">
+      <h2>Проверка кода</h2>
+      <div class="controls">
+        <input type="text" id="verify-code" placeholder="Введите код (например VC-XXXX)" />
+        <button id="verify-btn">Проверить</button>
+      </div>
+      <p id="verify-result" class="notice"></p>
+    </div>
+
+    <div class="card">
+      <div class="controls">
+        <div class="inline">
+          <label for="search">Поиск по коду:</label>
+          <input type="text" id="search" placeholder="Начните вводить код" />
+        </div>
+        <button id="refresh">Обновить</button>
+      </div>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>User ID</th>
+            <th>Discount</th>
+            <th>Code</th>
+            <th>Issued</th>
+            <th>Expires</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="coupons-body"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <script src="/admin/admin.js"></script>
+</body>
+</html>

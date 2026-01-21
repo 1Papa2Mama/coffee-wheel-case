@@ -1,0 +1,119 @@
+:root {
+  color-scheme: dark;
+  --bg: #15100d;
+  --card: #221915;
+  --accent: #d6a36a;
+  --muted: #c7b4a4;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: #f5f0e8;
+  min-height: 100vh;
+  padding: 30px;
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+
+.card {
+  background: var(--card);
+  padding: 20px;
+  border-radius: 16px;
+  margin-bottom: 20px;
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #3b2a22;
+  background: #1a1411;
+  color: #fff;
+  margin-top: 10px;
+}
+
+button {
+  background: var(--accent);
+  color: #1b1410;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+button.ghost {
+  background: transparent;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.table th,
+.table td {
+  padding: 10px;
+  border-bottom: 1px solid #3b2a22;
+  text-align: left;
+  font-size: 14px;
+}
+
+.table th {
+  color: var(--muted);
+}
+
+.badge {
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  display: inline-block;
+}
+
+.badge.active {
+  background: rgba(214, 163, 106, 0.2);
+  color: var(--accent);
+}
+
+.badge.used {
+  background: rgba(234, 99, 69, 0.2);
+  color: #ea6345;
+}
+
+.badge.expired {
+  background: rgba(88, 88, 88, 0.4);
+  color: #b0b0b0;
+}
+
+.controls {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.inline {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.hidden {
+  display: none;
+}
+
+.notice {
+  color: var(--muted);
+  margin-top: 10px;
+}
