@@ -177,6 +177,10 @@ a {
   color: var(--muted);
 }
 
+.contacts a {
+  color: var(--accent-soft);
+}
+
 .review span {
   display: block;
   margin-top: 12px;
